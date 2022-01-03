@@ -1,2 +1,1 @@
-# odin_etchsketch
-4th Odin project project. 16x16 etch-a-sketch in browser
+Odin Project 4th assignment; etch a sketch in a browser
