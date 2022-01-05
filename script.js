@@ -1,8 +1,18 @@
 function createGrid (sqrt) {
-    
+    document.getElementById('container').innerHTML = ''
+    let container = document.getElementById('container')
+    container.style.setProperty('grid-template-columns', 'repeat(' + sqrt + ', ' + (750 / sqrt) + 'px)')
+    container.style.setProperty('grid-template-rows', 'repeat(' + sqrt + ', ' + (750 / sqrt) + 'px)')
     for (let a = 0; a < sqrt; a++) {
         for (let b = 0; b < sqrt; b++) {
-            
+            let square = document.createElement('div')
+            square.className = 'square'
+            square.style.setProperty('grid-row', (a + 1).toString())
+            square.style.setProperty('grid-column', (b + 1).toString())
+            square.addEventListener('mouseover', () => {
+                event.target.style.backgroundColor = 'black'
+            })
+            container.appendChild(square)
         }
     }
 }
@@ -16,20 +26,13 @@ function queryForSqrt () {
     createGrid(newSqrt)
 }
 
-const squares = document.querySelectorAll('.square')
-
 const clearButton = document.getElementById('clear-button')
 clearButton.addEventListener('click', () => {
+    let squares = document.querySelectorAll('.square')
     squares.forEach((square) => {
-        square.style.backgroundColor = 'white'
+        event.target.style.backgroundColor = 'white'
     })
     queryForSqrt()
-})
-
-squares.forEach((square) => {
-    square.addEventListener('mouseover', () => {
-        event.target.style.backgroundColor = 'grey'
-    })
 })
 
 createGrid(16)

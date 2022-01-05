@@ -10,7 +10,8 @@
 }
 
 #container {
-
+    display: grid;
+    border: 10px solid red;
 }
 
 .square {
