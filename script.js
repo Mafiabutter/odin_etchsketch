@@ -1,18 +1,20 @@
 function createGrid (sqrt) {
-    const container = document.getElementById('container')
+    
     for (let a = 0; a < sqrt; a++) {
-        let newRow = document.createElement('div')
-        newRow.className = 'row'
-        container.appendChild(newRow)
         for (let b = 0; b < sqrt; b++) {
-            let newSquare = document.createElement('div')
-            newSquare.className = 'square'
-            newRow.appendChild(newSquare)
+            
         }
     }
 }
 
-createGrid(16)
+function queryForSqrt () {
+    var newSqrt = window.prompt('Please enter a new resolution for the etch a sketch:  ')
+    if (newSqrt > 100) {
+        alert("Resolution cannot be greater than 100 for performance's sake. Resolution will now be set to 100.")
+        newSqrt = 100
+    }
+    createGrid(newSqrt)
+}
 
 const squares = document.querySelectorAll('.square')
 
@@ -21,6 +23,7 @@ clearButton.addEventListener('click', () => {
     squares.forEach((square) => {
         square.style.backgroundColor = 'white'
     })
+    queryForSqrt()
 })
 
 squares.forEach((square) => {
@@ -28,3 +31,5 @@ squares.forEach((square) => {
         event.target.style.backgroundColor = 'grey'
     })
 })
+
+createGrid(16)

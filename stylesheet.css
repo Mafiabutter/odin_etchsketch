@@ -1,12 +1,18 @@
-#mega-necessary-container {
+#main-container {
+    align-items: center;
     display: flex;
     flex-direction: column;
     row-gap: 50px;
 }
-.row {
-    display: flex;
-    justify-content: center;
+
+#clear-button {
+    width: 100%;
 }
+
+#container {
+
+}
+
 .square {
-    flex: auto;
+
 }
